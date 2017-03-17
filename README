@@ -1,57 +1,26 @@
-Contiki SNMP
-============
+Contiki SNMP Getting Started
+==============================
+1. Back up your old contiki-snmp project
+    ```
+    mv contiki-snmp contiki-snmp_bk
+    ```
+2. Download this project
+    ```
+    git clone https://github.com/ca7erina/contiki-snmp.git
+    ```
+3. Compile
+    ```
+    cd contiki-snmp
+    ./compile.sh
+    ```
+4. Start radvd
+    ```
+    cd contiki-snmp
+    ./startRadvd.sh
+    ```
+5. test
+    ```
+    snmpwalk -v 1 -c public udp6:[aaaa::206:98ff:fe00:232]:1610 1
+    ```
 
-IEEE 802.15.4 is a standard which specifies the physical layer and
-media access control for low-rate wireless personal area networks
-providing node-to-node frame delivery between devices within reachable
-distance. The standard is targeted at low-cost, low-speed and
-low-power devices.
 
-Simple Network Management Protocol (SNMP) is a widely deployed
-application protocol for network management and data retrieval. Its
-implementation can be very lightweight and may fit
-resource-constrained devices very well.
-
-The focus of this project is implementation and evaluation of the SNMP
-protocol for devices supporting IEEE 802.15.4 Radios and the Contiki
-Embedded Operating System. The targeted platform is AVR Raven.
-
-The current implementation supports the GET, GETNEXT and SET
-operations, the SNMPv1 and SNMPv3 message processing models and the
-User-based Security Model with the HMAC-MD5-96 authentication and
-CFB128-AES-128 symmetric encryption protocols.
-
-Getting Started
-===============
-
-The Contiki SNMP agent has been tested working with the Contiki 2.5
-version. As such, it is provided here already integrated into a
-working Contiki 2.5 source tree.
-
-You can find instructions on how to get started with Contiki SNMP at:
-
-https://github.com/sehgalanuj/contiki-snmp/wiki
-
-Source Structure
-================
-
-* apps/snmpd:
-
-    This folder contains the SNMP agent implementation. Most purpose
-    of most files in here are self-explanatory.
-
-    All implemented MIB modules are in the mib-init-*.c files.
-
-* examples/snmpd-raven:
-
-    This example combines an SNMP agent and webserver implementation
-    together for the AVR Raven platform. The implemented MIB modules
-    can be found in the mib-init-raven.c file located in apps/snmpd.
-
-* examples/snmpd-minimal-net:
-
-    This example provides a virtual node that runs on the minimal-net
-    platform of Contiki. Without access to any specialized mote
-    hardware, this platform can be used to test the SNMP agent on your
-    native machine. The MIB implementation can be found in mib-init.c
-    file located in apps/snmpd.
