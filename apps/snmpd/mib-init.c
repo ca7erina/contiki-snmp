@@ -21,6 +21,10 @@ static ptr_t oid_system_str PROGMEM       = {ber_oid_system_str, 8};
 static u8t ber_oid_system_tick[] PROGMEM  = {0x2b, 0x06, 0x01, 0x02, 0x01, 0x01, 0x0D, 0x00};
 static ptr_t oid_system_tick PROGMEM      = {ber_oid_system_tick, 8};
 
+static u8t ber_oid_system_temperature[] PROGMEM  = {0x2b, 0x06, 0x01, 0x04, 0x01, 0x09, 0x09, 0x0D, 0x01, 0x03, 0x01, 0x03};
+static ptr_t oid_system_temperature PROGMEM      = {ber_oid_system_temperature, 12};
+
+
 static u8t ber_oid_if_number[] PROGMEM    = {0x2b, 0x06, 0x01, 0x02, 0x01, 0x02, 0x01, 0x00};
 static ptr_t oid_if_number PROGMEM        = {ber_oid_if_number, 8};
 
@@ -129,17 +133,23 @@ s8t mib_init()
         add_scalar(&oid_system_tick, 0, BER_TYPE_TIME_TICKS, &tconst, 0, 0) == -1) {
         return -1;
     }
-    if (add_scalar(&oid_if_number, 0, BER_TYPE_INTEGER, 0, &getIfNumber, 0) == -1) {
-        return -1;
-    }
+
+    if (add_scalar(&oid_system_temperature, 0, BER_TYPE_INTEGER, 0, 0, 0) == -1) {
+            return -1;
+        }
+
+
+//    if (add_scalar(&oid_if_number, 0, BER_TYPE_INTEGER, 0, &getIfNumber, 0) == -1) {
+//       return -1;
+//    }
 
     if (add_table(&oid_if_table, &getIf, &getNextIfOid, 0) == -1) {
         return -1;
     }
 
-    if (add_scalar(&oid_test_int, 0, BER_TYPE_INTEGER, 0, 0, 0) == -1 ||
-       add_scalar(&oid_test_uint, 0, BER_TYPE_GAUGE, 0, 0, 0) == -1) {
-        return -1;
-    }
+//    if (add_scalar(&oid_test_int, 0, BER_TYPE_INTEGER, 0, 0, 0) == -1 ||
+//       add_scalar(&oid_test_uint, 0, BER_TYPE_GAUGE, 0, 0, 0) == -1) {
+//        return -1;
+//    }
     return 0;
 }
