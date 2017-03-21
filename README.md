@@ -1,5 +1,26 @@
 Contiki SNMP Getting Started
 ==============================
+0. install contiki  (http://anrg.usc.edu/contiki/index.php/Installation#Using_ContikiOS_from_Github_repository)
+   ```
+   wget https://github.com/contiki-os/contiki/archive/3.0.zip
+   ```
+   
+   ```
+   unzip 3.0.zip
+   ```
+   
+   ```
+   mv contiki-3.0 contiki
+   ```
+   
+   ```
+   sudo apt-get install build-essential binutils-msp430 gcc-msp430 msp430-libc msp430mcu mspdebug gcc-arm-none-eabi gdb-arm-none-eabi openjdk-8-jdk openjdk-8-jre ant libncurses5-dev
+   ```
+   
+   ```
+   sudo apt-get install lib32ncurses5
+   ```
+
 1. Back up your old contiki-snmp project
     ```
     mv contiki-snmp contiki-snmp_bk
