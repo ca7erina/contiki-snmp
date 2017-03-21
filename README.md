@@ -45,4 +45,23 @@ Contiki SNMP Getting Started
     snmpwalk -v 1 -c public udp6:[aaaa::206:98ff:fe00:232]:1610 1
     ```
 
+Add a MIB file
+==============================
+1. create mib folder, put your MIB file there
+    ```
+    mkdir ~/.snmp
+    mkdir ~/.snmp/mibs
+    cp SNMPv2-SMI ~/.snmp
+    cp SNMPv2-MIB ~/.snmp
+    cp SNMPv2-TC ~/.snmp
+    ```
+2. update add it to config file.
+    ```
+    sudo vi /etc/snmp/snmp.conf
+    ```
+    ```
+    mibs:SNMPv2-MIB
+    ```
+ 
+    
 
