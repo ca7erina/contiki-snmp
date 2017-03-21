@@ -1,7 +1,7 @@
+.DS_Store
 *.a
 *.bin
 *.map
-*.png
 *.log
 *.elf
 *.ihex
