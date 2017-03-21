@@ -39,7 +39,24 @@ Contiki SNMP Getting Started
     cd contiki-snmp
     ./startRadvd.sh
     ```
-    
+    Don't forget that you should already add this to /etc/radvd.conf
+    ```
+          interface usb0 {
+          AdvSendAdvert on;
+          AdvLinkMTU 1280;
+          AdvCurHopLimit 128;
+          AdvReachableTime 360000;
+          MinRtrAdvInterval 100;
+          MaxRtrAdvInterval 150;
+          AdvDefaultLifetime 200;
+          prefix AAAA::/64 {
+              AdvOnLink on;
+              AdvAutonomous on;
+              AdvPreferredLifetime 4294967295;
+              AdvValidLifetime 4294967295;
+          };
+      };
+    ```
 5. test
     ```
     snmpwalk -v 1 -c public udp6:[aaaa::206:98ff:fe00:232]:1610 1
