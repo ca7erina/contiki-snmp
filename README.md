@@ -14,7 +14,7 @@ Contiki SNMP Getting Started
    ```
    
    ```
-   sudo apt-get install build-essential binutils-msp430 gcc-msp430 msp430-libc msp430mcu mspdebug gcc-arm-none-eabi gdb-arm-none-eabi openjdk-8-jdk openjdk-8-jre ant libncurses5-dev
+   sudo apt-get install build-essential binutils-msp430 gcc-msp430 msp430-libc msp430mcu mspdebug gcc-arm-none-eabi gdb-arm-none-eabi openjdk-8-jdk openjdk-8-jre ant libncurses5-dev radvd
    ```
    
    ```
@@ -39,6 +39,7 @@ Contiki SNMP Getting Started
     cd contiki-snmp
     ./startRadvd.sh
     ```
+    
 5. test
     ```
     snmpwalk -v 1 -c public udp6:[aaaa::206:98ff:fe00:232]:1610 1
