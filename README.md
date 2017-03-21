@@ -51,9 +51,8 @@ Add a MIB file
     ```
     mkdir ~/.snmp
     mkdir ~/.snmp/mibs
-    cp SNMPv2-SMI ~/.snmp
-    cp SNMPv2-MIB ~/.snmp
-    cp SNMPv2-TC ~/.snmp
+    cd contiki-snmp
+    sudo cp mibs/* ~/.snmp/mibs/
     ```
 2. update add it to config file.
     ```
@@ -62,6 +61,9 @@ Add a MIB file
     ```
     mibs:SNMPv2-MIB
     ```
- 
-    
+3. test
+    ```
+    snmpwalk -v 1 -c public udp6:[aaaa::206:98ff:fe00:232]:1610 1
+    ```
+    ![mib](images/mib.png?raw=true)
 
