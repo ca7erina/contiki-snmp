@@ -14,7 +14,7 @@ Contiki SNMP Getting Started
    ```
    
    ```
-   sudo apt-get install build-essential binutils-msp430 gcc-msp430 msp430-libc msp430mcu mspdebug gcc-arm-none-eabi gdb-arm-none-eabi openjdk-8-jdk openjdk-8-jre ant libncurses5-dev radvd
+   sudo apt-get install build-essential binutils-msp430 gcc-msp430 msp430-libc msp430mcu mspdebug gcc-arm-none-eabi gdb-arm-none-eabi openjdk-8-jdk openjdk-8-jre ant libncurses5-dev radvd snmp
    ```
    
    ```
@@ -76,7 +76,7 @@ Add a MIB file
     sudo vi /etc/snmp/snmp.conf
     ```
     ```
-    mibs:SNMPv2-MIB
+    mibs :SNMPv2-MIB
     ```
 3. test
     ```
